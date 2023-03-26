@@ -10,7 +10,7 @@
 			@csrf
 			<div class="mb-6">
 				<label for="voornaam" class="mb-2 inline-block text-lg">Voornaam</label>
-				<input type="text" class="w-full rounded border border-gray-200 p-2" name="compvoornaamany"
+				<input type="text" class="w-full rounded border border-gray-200 p-2" name="voornaam"
         placeholder="John" value="{{ old('voornaam') }}" />
 
 				@error('voornaam')
@@ -70,22 +70,22 @@
 				@enderror
 			</div>
 
+      <div class="mb-6">
+				<label for="toestemming" class="mb-2 inline-block text-lg">Algemene voorwaarden</label>
+				<input type="checkbox" class="p-2 rounded border border-gray-200" name="toestemming"
+        value="true" />
+
+				@error('toestemming')
+					<p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+				@enderror
+			</div>
+
 			<div class="mb-6">
 				<button class="bg-red-500 rounded py-2 px-4 text-white hover:bg-black">
 					Sla Lead op
 				</button>
 
 				<a href="/" class="ml-4 text-black"> Back </a>
-			</div>
-
-      <div class="mb-6">
-				<label for="toestemming" class="mb-2 inline-block text-lg">Algemene voorwaarden</label>
-				<input type="checkbox" class="p-2 rounded border border-gray-200" name="toestemming"
-        value="{{ old('toestemming') }}" />
-
-				@error('toestemming')
-					<p class="mt-1 text-xs text-red-500">{{ $message }}</p>
-				@enderror
 			</div>
 		</form>
 	</x-card>
