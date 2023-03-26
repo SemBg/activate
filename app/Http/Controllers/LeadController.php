@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class LeadController extends Controller
 {
+
+  public function create() {
+    //* Return leads create view
+    return view('leads.create');
+  }
+
   public function store(Request $request) {
     //* Return early als de algemene voorwaardes niet zijn geaccepteerd.
     if($request->toestemming != true) {
