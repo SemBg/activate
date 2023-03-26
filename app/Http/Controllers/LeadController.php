@@ -35,6 +35,6 @@ class LeadController extends Controller
     }
 
     Lead::create($formFields);
-    return true;
+    return redirect('/');
   }
 }
