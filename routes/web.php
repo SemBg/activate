@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/create-lead', [LeadController::class, 'create']);
 Route::post('/store-lead', [LeadController::class, 'store']);
