@@ -68,4 +68,18 @@ class UserController extends Controller
 
     return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
   }
+
+  //* Get API token
+  public function getapitoken(Request $request)
+  {
+    $formFields = $request->validate([
+      'email' => ['required', 'email'],
+      'password' => 'required'
+    ]);
+
+    if(auth()->attempt($formFields)) {
+      $user = User::where('email', $request->email)->first();
+      return ['API Token' => $user->createToken("API TOKEN")->plainTextToken];
+    }
+  }
 }
