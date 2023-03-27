@@ -22,7 +22,7 @@ Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 Route::post('/create-user', [UserController::class, 'store']);
 
 //* Show login form
-Route::get('/login', [UserController::class, 'login'])->middleware('guest');
+Route::get('/login', [UserController::class, 'login'])->middleware('guest')->name('login');
 
 //* Log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
