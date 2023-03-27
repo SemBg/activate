@@ -39,4 +39,10 @@ class LeadController extends Controller
       'leads' => Lead::all()
     ]);
   }
+
+  public function show(Lead $lead) {
+    return view('leads.show', [
+      'lead' => $lead
+    ]);
+  }
 }
