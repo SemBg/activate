@@ -10,5 +10,7 @@
 				</a>
       </div>
     @endforeach
+  @else
+    <p>No leads available, start creating some new leads!</p>
   @endunless
 </x-layout>
