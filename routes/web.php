@@ -30,5 +30,14 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 //* Log user out
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 
+//* Show create lead view
 Route::get('/create-lead', [LeadController::class, 'create']);
+
+//* Store lead
 Route::post('/store-lead', [LeadController::class, 'store']);
+
+//* Show all Leads
+Route::get('/leads', [LeadController::class, 'index'])->middleware('auth');
+
+//* Show single lead
+Route::get('/lead/{lead}', [LeadController::class, 'show'])->middleware('auth');
