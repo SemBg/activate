@@ -14,11 +14,6 @@ class LeadController extends Controller
   }
 
   public function store(Request $request) {
-    //* Return early als de algemene voorwaardes niet zijn geaccepteerd.
-    if($request->toestemming != true) {
-      return 'Algemene voorwaardes moeten geaccepteerd worden!';
-    }
-
     //* Valideer of alle velden correct zijn ingevuld
     $formFields = $request->validate([
       'voornaam' => 'required',
@@ -26,6 +21,7 @@ class LeadController extends Controller
       'telefoonnummer' => ['required', 'numeric', 'min:10'],
       'email' => ['required', 'email'],
       'omschrijving' => 'required',
+      'toestemming' => 'required'
     ]);
 
     //* Check of de request een bijlage heeft
@@ -36,5 +32,11 @@ class LeadController extends Controller
 
     Lead::create($formFields);
     return redirect('/');
+  }
+
+  public function index() {
+    return view('leads.index', [
+      'leads' => Lead::all()
+    ]);
   }
 }
